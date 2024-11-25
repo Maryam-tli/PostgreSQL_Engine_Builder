@@ -9,3 +9,12 @@ motor = create_engine(connection_string)
 Base = declarative_base()
 meeting = sessionmaker(bind=motor)
 session = meeting()
+
+
+# Define the Person class to represent the 'human' table in the database
+class Person(Base):
+    __tablename__ = "human"
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    full_name = Column(String, nullable=False)
+    age = Column(Integer, nullable=False)
+    email = Column(String, nullable=True)

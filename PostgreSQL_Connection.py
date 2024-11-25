@@ -5,9 +5,9 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 connection_string = "postgresql+psycopg2://your_username:your_password@localhost:5432/your_database"
 
 # Create the database engine, a base class, Set up a session factory and Create a session instance
-motor = create_engine(connection_string)
+engine = create_engine(connection_string)
 Base = declarative_base()
-meeting = sessionmaker(bind=motor)
+meeting = sessionmaker(bind=engine)
 session = meeting()
 
 
@@ -22,3 +22,7 @@ class Person(Base):
     # Define a string representation method
     def __repr__(self):
         return f"our human info is {self.id},{self.full_name},{self.age},{self.email}"
+
+
+# Create all tables defined by the ORM models
+Base.metadata.create_all(engine)

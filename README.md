@@ -8,4 +8,5 @@ Install dependencies:
 **pip install sqlalchemy psycopg2-binary**
 
 2.Update the connection string in the script with your database credentials.
+
 3.Run the script to establish the connection and create the database schema.

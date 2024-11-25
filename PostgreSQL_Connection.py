@@ -18,3 +18,7 @@ class Person(Base):
     full_name = Column(String, nullable=False)
     age = Column(Integer, nullable=False)
     email = Column(String, nullable=True)
+
+    # Define a string representation method
+    def __repr__(self):
+        return f"our human info is {self.id},{self.full_name},{self.age},{self.email}"
